@@ -1,0 +1,86 @@
+.static-plate-div {
+    border-radius: 1.3rem;
+    border: 2px solid black;
+    width: 80%;
+}
+
+.static-plate-span {
+    font-weight: bold;
+    font-size: .5rem;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    color: white;
+}
+
+/*.static-plate-span-margin-top {*/
+    /*margin-top: 2px;*/
+/*}*/
+
+.static-plate-flag-part {
+    background-color: blue;
+    border-right: 2px solid black;
+    border-bottom-left-radius: 1.15rem;
+    border-top-left-radius: 1.15rem;
+}
+
+.static-plate-image {
+    border-radius: 4px;
+    padding: .5rem;
+    height: 50px;
+    width: 75px;
+    display: block;
+    margin: auto;
+
+}
+
+.static-plate-plate-number {
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    text-align: center;
+    letter-spacing: 4px;
+    font-weight: bold;
+}
+
+.static-plate-plate-number-part {
+    position: relative;
+}
+
+
+.static-plate-code-part-span {
+    display: block;
+    margin-top: 2px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.static-plate-code-part {
+    border-left: 2px solid black;
+    border-bottom-right-radius: 1.15rem;
+    border-top-right-radius: 1.15rem;
+}
+
+.static-plate-code-part-span-name {
+    display: block;
+    margin: 4px auto;
+    text-align: center;
+    font-weight: bold;
+    font-stretch: extra-expanded;
+    font-size: 1.25rem;
+}
+
+.static-plate-code-part-span-code {
+    font-size: 1.25rem;
+    display: block;
+    margin:auto;
+    text-align: center;
+    font-weight: bold;
+    font-stretch: extra-expanded;
+    letter-spacing: 4px;
+}

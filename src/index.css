@@ -5,9 +5,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: ghostwhite;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.leaflet-container {
+  border: 2px solid black;
+  border-radius: 12px;
+  height: 500px;
+  width: 100%;
+  margin: 0 auto;
 }
