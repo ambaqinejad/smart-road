@@ -9,28 +9,28 @@
     font-weight: bold;
 }
 
-div.col-11 h5.plate-query-modal-title {
+[class*="query-modal-title"] {
     text-align: right;
 }
 
-div.row div.plate-query-modal-footer {
+[class*="query-modal-footer"] {
     display: block;
     margin: auto;
 }
 
-label.plate-query-form-label {
+[class*="query-form-label"] {
     display: block;
     text-align: right;
     direction: rtl;
 }
 
-input.plate-query-form-input {
+
+[class*="query-form-label"] {
     direction: rtl;
     text-align: center;
 }
 
-
-select.plate-query-form-select {
+[class*="query-form-label"] {
     direction: rtl;
     text-align: center;
     align-items: center;

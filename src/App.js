@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import Home from "./Components/Javascript/Home";
-import Contact from "./Components/Javascript/Contact";
 import PlateQuery from "./Components/Javascript/PlateQuery";
+import PathQuery from "./Components/Javascript/PathQuery";
 import 'bootstrap'
 import 'jquery'
 import './App.css';
@@ -33,8 +33,15 @@ class App extends Component {
                                     </li>
                                     <li className="nav-item">
                                         <a className="nav-link" href="#">
-                                            <Link to={'/contact'}>
+                                            <Link to={'/plateQuery'}>
                                                 استعلام پلاک
+                                            </Link>
+                                        </a>
+                                    </li>
+                                    <li className="nav-item">
+                                        <a className="nav-link" href="#">
+                                            <Link to={'/pathQuery'}>
+                                                استعلام مسیر
                                             </Link>
                                         </a>
                                     </li>
@@ -44,7 +51,8 @@ class App extends Component {
                     </div>
                     <Switch>
                         <Route exact path='/' component={Home}/>
-                        <Route path='/contact' component={PlateQuery}/>
+                        <Route path='/plateQuery' component={PlateQuery}/>
+                        <Route path='/pathQuery' component={PathQuery}/>
                     </Switch>
                 </div>
             </Router>
