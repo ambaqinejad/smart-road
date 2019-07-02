@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import './App.css';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import Home from "./Components/Javascript/Home";
 import Contact from "./Components/Javascript/Contact";
+import PlateQuery from "./Components/Javascript/PlateQuery";
 import 'bootstrap'
 import 'jquery'
+import './App.css';
 
 
 class App extends Component {
@@ -14,8 +15,8 @@ class App extends Component {
             <Router>
                 <div>
                     <div dir={"rtl"}>
-                        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                            <button dir={"rtl"} className="navbar-toggler" type="button" data-toggle="collapse"
+                        <nav className="navbar navbar-expand-lg navbar-light my-navbar">
+                            <button className="navbar-toggler my-navbar-toggler" type="button" data-toggle="collapse"
                                     data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                                     aria-label="Toggle navigation">
                                 <span className="navbar-toggler-icon"></span>
@@ -25,7 +26,7 @@ class App extends Component {
                                     <li className="nav-item active">
                                         <a className="nav-link" href="#">
                                             <Link to={'/'}>
-                                                استعلام پلاک
+                                                خانه
                                             </Link>
                                             <span className="sr-only">(current)</span>
                                         </a>
@@ -33,7 +34,7 @@ class App extends Component {
                                     <li className="nav-item">
                                         <a className="nav-link" href="#">
                                             <Link to={'/contact'}>
-                                                امکانات
+                                                استعلام پلاک
                                             </Link>
                                         </a>
                                     </li>
@@ -41,13 +42,11 @@ class App extends Component {
                             </div>
                         </nav>
                     </div>
-                    <hr/>
                     <Switch>
                         <Route exact path='/' component={Home}/>
-                        <Route path='/contact' component={Contact}/>
+                        <Route path='/contact' component={PlateQuery}/>
                     </Switch>
                 </div>
-
             </Router>
         );
     }

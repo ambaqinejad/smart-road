@@ -2,6 +2,8 @@
     border-radius: 1.3rem;
     border: 2px solid black;
     width: 80%;
+    display: block;
+    margin: 24px auto;
 }
 
 .static-plate-span {

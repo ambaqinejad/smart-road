@@ -16,11 +16,18 @@ code {
 .leaflet-container {
   border: 2px solid black;
   border-radius: 12px;
-  height: 500px;
-  width: 100%;
-  margin: 0 auto;
+  height: 25rem;
+  width: 60%;
+  margin: 24px auto;
 }
 
 .leaflet-routing-alt {
   display: none;
+}
+
+
+@media screen and (max-height: 800px){
+    .leaflet-container {
+      width: 90%;
+    }
 }

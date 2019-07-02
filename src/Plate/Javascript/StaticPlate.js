@@ -8,7 +8,7 @@ const staticPlate = (props) => {
 
 
     return (
-        <div className={'static-plate-div grow shadow-5 tc dib ma3'}>
+        <div className={'grow shadow-5 static-plate-div'}>
             <Container fluid>
                 <Row>
                     <Col xs={2} className={'static-plate-flag-part'}>

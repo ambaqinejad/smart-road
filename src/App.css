@@ -6,6 +6,28 @@
 }
 
 .my-navbar {
+  background-color: #a30000;
+}
+
+a.nav-link > a {
+  color: white;
   float: right;
 }
+
+a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.my-navbar-toggler{
+  color: white;
+  background-color: white;
+  float: left;
+}
+
+ul.navbar-nav {
+  padding: 0;
+}
+
+
 
