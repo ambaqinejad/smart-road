@@ -1,7 +1,7 @@
 import React, {Component} from "react"
 import 'bootstrap'
 import SmartRoadMap from "../../Map/Javascript/SmartRoadMap";
-import {day, month, plateChar} from "../../assets/Jsons/JsonFiles";
+import {day, month, plateChar} from "../../Constants/Jsons/JsonFiles";
 
 class PathQuery extends Component {
     render() {

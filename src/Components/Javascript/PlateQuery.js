@@ -1,10 +1,78 @@
 import React, {Component} from 'react'
+import SmartRoadMap from '../../Map/Javascript/SmartRoadMap'
+import {plateChar, month, day} from '../../Constants/Jsons/JsonFiles'
+import {GET_CURRENT_LOCATION} from "../../Constants/Apis/ApiAddresses"
+import {CAR_DOES_NT_EXIST_TEXT} from "../../Constants/Text/TextConstants"
 import 'bootstrap'
 import '../Css/Query.css'
-import SmartRoadMap from '../../Map/Javascript/SmartRoadMap'
-import {plateChar, month, day} from '../../assets/Jsons/JsonFiles'
 
 class PlateQuery extends Component {
+
+    state = {
+        coordinate: {
+            lat: "",
+            lang: ""
+        }
+    };
+
+    plateQueryOnClick = () => {
+        let plateQueryModal = document.getElementById("plate-query-modal");
+        
+
+        if (this.plateNumber.value < 10000 || this.plateNumber.value > 99999) {
+            alert("شماره باید ۵ رقمی باشد")
+        } else {
+            if (this._year.value < 1300 || this._year.value > 1500) {
+                alert("سال باید مقداری بین ۱۳۰۰ تا ۱۵۰۰ داشته باشد")
+            } else {
+                if (this.plateCode.value === "") {
+                    alert("حرف پلاک را مشخص کنید")
+                } else {
+                    let plateNumber = this.plateNumber.value + this.plateCode.value;
+                    let plateChar = this.plateChar.value;
+                    let year = this._year.value;
+                    let month = this._month.value;
+                    let day = this._day.value;
+                    // console.log(body);
+                    let data = new FormData();
+                    data.append('plate_char', plateChar);
+                    data.append('plate_num', plateNumber);
+                    data.append('year', year);
+                    data.append('month', month);
+                    data.append('day', day);
+                    console.log(data);
+                    this.handleQuery(data)
+                }
+            }
+        }
+
+
+    };
+
+
+    handleQuery = (data) => {
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', GET_CURRENT_LOCATION, true);
+        xhr.onload = function () {
+            // do something to response
+            console.log(xhr.responseText);
+            if(xhr.responseText.toString() === CAR_DOES_NT_EXIST_TEXT) {
+
+            } else {
+                let object = JSON.parse(xhr.responseText);
+                console.log(object["province"]);
+                this.setState({
+                    coordinate: {
+                        lat: object["longitude"],
+                        lang: object["latitude"]
+                    }
+                })
+            }
+
+        }.bind(this);
+        xhr.send(data);
+    };
+
     render() {
         return (
             <div className={'plate-query'}>
@@ -22,7 +90,12 @@ class PlateQuery extends Component {
                         <div className="col-">
                         </div>
                         <div className="col-12">
-                            <SmartRoadMap lat={"35.689198"} lang={"51.388973"}/>
+                            {(this.state.coordinate.lang === "" || this.state.coordinate.lat === "") ?
+                                <SmartRoadMap lat={"35.689198"} lang={"51.388973"}/> :
+                                <SmartRoadMap
+                                    lat={this.state.coordinate.lat}
+                                    lang={this.state.coordinate.lang}/>
+                            }
                         </div>
                         <div className="col-">
                         </div>
@@ -73,6 +146,9 @@ class PlateQuery extends Component {
                                                                        id="plate-query-form-plate-number"
                                                                        min="10000"
                                                                        max="99999"
+                                                                       ref={node => {
+                                                                           this.plateNumber = node
+                                                                       }}
                                                                        placeholder="شماره پلاک"/>
                                                             </div>
                                                         </div>
@@ -90,6 +166,9 @@ class PlateQuery extends Component {
                                                                        id="plate-query-form-plate-code"
                                                                        min="10"
                                                                        max="99"
+                                                                       ref={node => {
+                                                                           this.plateCode = node
+                                                                       }}
                                                                        placeholder="کد پلاک"/>
                                                             </div>
                                                         </div>
@@ -100,8 +179,12 @@ class PlateQuery extends Component {
                                                                     htmlFor="plate-query-form-plate-char">
                                                                     حرف پلاک:
                                                                 </label>
-                                                                <select className="form-control plate-query-form-select"
-                                                                        id="plate-query-form-plate-char">
+                                                                <select
+                                                                    className="form-control plate-query-form-select"
+                                                                    id="plate-query-form-plate-char"
+                                                                    ref={node => {
+                                                                        this.plateChar = node
+                                                                    }}>
                                                                     {plateChar.map(el => {
                                                                         return <option
                                                                             className="plate-query-form-select">
@@ -124,6 +207,9 @@ class PlateQuery extends Component {
                                                                        max="1500"
                                                                        className="form-control plate-query-form-input"
                                                                        id="plate-query-form-year"
+                                                                       ref={node => {
+                                                                           this._year = node
+                                                                       }}
                                                                        placeholder="سال"/>
                                                             </div>
                                                         </div>
@@ -138,7 +224,10 @@ class PlateQuery extends Component {
                                                                     <select
                                                                         className="form-control plate-query-form-select"
                                                                         id="plate-query-form-month"
-                                                                        placeholder="ماه">
+                                                                        placeholder="ماه"
+                                                                        ref={node => {
+                                                                            this._month = node
+                                                                        }}>
                                                                         {month.map(el => {
                                                                             return <option
                                                                                 className="plate-query-form-select">
@@ -160,7 +249,10 @@ class PlateQuery extends Component {
                                                                     <select
                                                                         className="form-control plate-query-form-select"
                                                                         id="plate-query-form-day"
-                                                                        placeholder="روز">
+                                                                        placeholder="روز"
+                                                                        ref={node => {
+                                                                            this._day = node
+                                                                        }}>
                                                                         {day.map(el => {
                                                                             return <option
                                                                                 className="plate-query-form-select">
@@ -183,7 +275,11 @@ class PlateQuery extends Component {
                                     <div className="modal-footer plate-query-modal-footer">
                                         <button type="button" className="btn btn-secondary" data-dismiss="modal">خروج
                                         </button>
-                                        <button type="button" className="btn btn-primary">استعلام</button>
+                                        <button
+                                            type="button"
+                                            className="btn btn-primary"
+                                            onClick={this.plateQueryOnClick}>استعلام
+                                        </button>
                                     </div>
                                 </div>
                             </div>

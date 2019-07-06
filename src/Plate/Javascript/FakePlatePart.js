@@ -1,8 +1,8 @@
 import React from 'react'
 import StaticPlate from "./StaticPlate";
-import {plate} from "../../assets/Jsons/JsonFiles";
+import {plate} from "../../Constants/Jsons/JsonFiles";
 
-import "../../assets/Jsons/JsonFiles"
+import "../../Constants/Jsons/JsonFiles"
 import 'bootstrap'
 
 
