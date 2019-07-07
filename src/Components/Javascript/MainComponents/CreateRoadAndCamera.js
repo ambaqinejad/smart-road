@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import RoadCard from '../SubComponents/RoadCard'
 import CreateRoadCameraSearch from '../SubComponents/CreateRoadCameraSearch'
-import '../../Css/Maincomponents/CreateRoadAndCameras.css'
-import '../../Css/Maincomponents/Query.css'
 import {province} from "../../../Constants/Jsons/JsonFiles";
 import {CREATE_ROAD_URL} from "../../../Constants/Apis/ApiAddresses";
 import {ROAD_CREATE_SUCCESSFULLY_TEXT} from "../../../Constants/Text/TextConstants";
+import '../../Css/Maincomponents/CreateRoadAndCameras.css'
+import '../../Css/Maincomponents/Query.css'
 
 
 class CreateRoadAndCamera extends Component {
@@ -14,6 +14,18 @@ class CreateRoadAndCamera extends Component {
         roads: [],
         searchField: "",
         justForReRender: true
+    };
+
+
+    goToCameraPageClick = (id) => {
+        console.log(id);
+
+        this.props.history.push({
+                pathname: '/template',
+                search: '?query=abc',
+                state: {detail: id}
+            }
+        );
     };
 
 
@@ -34,8 +46,6 @@ class CreateRoadAndCamera extends Component {
             console.log(data);
             this.handleQuery(data)
         }
-
-
     };
 
 
@@ -52,7 +62,6 @@ class CreateRoadAndCamera extends Component {
                 this.componentDidMount()
             } else {
                 console.log(object["road_id"]);
-
             }
         };
         xhr.send(data);
@@ -92,7 +101,7 @@ class CreateRoadAndCamera extends Component {
                             <button className='query-button'
                                     data-toggle="modal"
                                     data-target="#road-creator-modal">
-                                استعلام مسیر
+                                ایجاد مسیر
                             </button>
                         </div>
                         <div className="col-sm-1 col-md-3">
@@ -108,7 +117,8 @@ class CreateRoadAndCamera extends Component {
                                         <RoadCard
                                             way={way}
                                             province={el["province"]}
-                                            road_id={el["road_id"]}/>
+                                            road_id={el["road_id"]}
+                                            goToCameraPageClick={() => this.goToCameraPageClick(el["road_id"])}/>
                                     )
                                 })
                             }

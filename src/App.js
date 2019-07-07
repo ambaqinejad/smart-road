@@ -4,6 +4,8 @@ import Home from "./Components/Javascript/MainComponents/Home";
 import PlateQuery from "./Components/Javascript/MainComponents/PlateQuery";
 import PathQuery from "./Components/Javascript/MainComponents/PathQuery";
 import CreateRoadAndCamera from "./Components/Javascript/MainComponents/CreateRoadAndCamera";
+import WorkingWithCamera from "./Components/Javascript/MainComponents/WorkingWithCamera";
+
 import 'bootstrap'
 import 'jquery'
 import './App.css';
@@ -62,6 +64,7 @@ class App extends Component {
                         <Route path='/plateQuery' component={PlateQuery}/>
                         <Route path='/pathQuery' component={PathQuery}/>
                         <Route path='/road_camera' component={CreateRoadAndCamera}/>
+                        <Route path='/camera' component={WorkingWithCamera}/>
                     </Switch>
                 </div>
             </Router>

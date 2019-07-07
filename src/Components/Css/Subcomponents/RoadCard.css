@@ -3,6 +3,25 @@ label.road-card-label {
     text-align: center;
 }
 
+a {
+  color: white;
+}
+
+a:hover{
+    color: white;
+}
+
+button.card-button {
+    display: block;
+    margin: 4% auto;
+    background-color: #dd2c00;
+    color: white;
+    padding: 12px 48px;
+    border: none;
+    border-radius: 14px;
+    font-weight: bold;
+}
+
 div.container.road-card-container {
     /*float: left;*/
     width: 30%
