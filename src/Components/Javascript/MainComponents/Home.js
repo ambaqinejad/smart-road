@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Container, Col, Row} from "react-bootstrap";
-import FakePlatePart from '../../Plate/Javascript/FakePlatePart'
-import SmartRoadMap from '../../Map/Javascript/SmartRoadMap'
+import FakePlatePart from '../../../Plate/Javascript/FakePlatePart'
+import SmartRoadMap from '../../../Map/Javascript/SmartRoadMap'
 // import 'bootstrap'
 
 

@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
-import Home from "./Components/Javascript/Home";
-import PlateQuery from "./Components/Javascript/PlateQuery";
-import PathQuery from "./Components/Javascript/PathQuery";
+import Home from "./Components/Javascript/MainComponents/Home";
+import PlateQuery from "./Components/Javascript/MainComponents/PlateQuery";
+import PathQuery from "./Components/Javascript/MainComponents/PathQuery";
+import CreateRoadAndCamera from "./Components/Javascript/MainComponents/CreateRoadAndCamera";
 import 'bootstrap'
 import 'jquery'
 import './App.css';
@@ -45,6 +46,13 @@ class App extends Component {
                                             </Link>
                                         </a>
                                     </li>
+                                    <li className="nav-item">
+                                        <a className="nav-link" href="#">
+                                            <Link to={'/road_camera'}>
+                                                جاده و دوربین
+                                            </Link>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </nav>
@@ -53,6 +61,7 @@ class App extends Component {
                         <Route exact path='/' component={Home}/>
                         <Route path='/plateQuery' component={PlateQuery}/>
                         <Route path='/pathQuery' component={PathQuery}/>
+                        <Route path='/road_camera' component={CreateRoadAndCamera}/>
                     </Switch>
                 </div>
             </Router>

@@ -1,0 +1,28 @@
+div input.create-road-camera-search-bar {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin: 16px auto;
+    border: 2px solid #24000c;
+    background-color: #d7f59c;
+    border-radius: 10px;
+    height: 3rem;
+}
+
+::placeholder {
+    color: #0a043c;
+}
+
+::-moz-placeholder{
+    color: #0a043c;
+}
+
+::-ms-input-placeholder{
+    color: #0a043c;
+}
+
+::-webkit-input-placeholder{
+    color: #0a043c;
+}
+
+

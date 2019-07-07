@@ -9,29 +9,46 @@
     font-weight: bold;
 }
 
-[class*="query-modal-title"] {
+[class*="modal-title"] {
     text-align: right;
 }
 
-[class*="query-modal-footer"] {
+[class*="modal-footer"] {
     display: block;
     margin: auto;
 }
 
-[class*="query-form-label"] {
+[class*="form-label"] {
     display: block;
     text-align: right;
     direction: rtl;
 }
 
 
-[class*="query-form-label"] {
+[class*="form-label"] {
     direction: rtl;
     text-align: center;
 }
 
-[class*="query-form-label"] {
+[class*="form-label"] {
     direction: rtl;
     text-align: center;
     align-items: center;
+}
+
+
+::placeholder {
+    text-align: center;
+}
+
+::-moz-placeholder{
+    text-align: center;
+}
+
+::-ms-input-placeholder{
+    text-align: center;
+}
+
+::-webkit-input-placeholder{
+    text-align: center;
 }
