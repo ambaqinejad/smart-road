@@ -9,6 +9,7 @@ import WorkingWithCamera from "./Components/Javascript/MainComponents/WorkingWit
 import 'bootstrap'
 import 'jquery'
 import './App.css';
+import Contact from "./Components/Javascript/MainComponents/Contact";
 
 
 class App extends Component {
@@ -65,6 +66,7 @@ class App extends Component {
                         <Route path='/pathQuery' component={PathQuery}/>
                         <Route path='/road_camera' component={CreateRoadAndCamera}/>
                         <Route path='/camera' component={WorkingWithCamera}/>
+                        <Route path='/a' component={Contact}/>
                     </Switch>
                 </div>
             </Router>
