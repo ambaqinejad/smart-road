@@ -1,6 +1,6 @@
 import React from 'react'
 import RoadCardImage from '../../../assets/images/Image_1-1080x675.png'
-import "../../Css/Subcomponents/RoadCard.css"
+import "../../Css/Subcomponents/Card.css"
 import 'bootstrap'
 
 const roadCard = (props) => {

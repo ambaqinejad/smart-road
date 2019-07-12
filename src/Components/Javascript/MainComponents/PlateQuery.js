@@ -1,10 +1,19 @@
 import React, {Component} from 'react'
 import SmartRoadMap from '../../../Map/Javascript/SmartRoadMap'
+import L from 'leaflet'
 import {plateChar, month, day} from '../../../Constants/Jsons/JsonFiles'
 import {GET_CURRENT_LOCATION} from "../../../Constants/Apis/ApiAddresses"
 import {CAR_DOES_NT_EXIST_TEXT} from "../../../Constants/Text/TextConstants"
 import 'bootstrap'
 import '../../Css/Maincomponents/Query.css'
+
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+
+let DefaultIcon = L.icon({
+    iconUrl: icon,
+    shadowUrl: iconShadow
+});
 
 class PlateQuery extends Component {
 

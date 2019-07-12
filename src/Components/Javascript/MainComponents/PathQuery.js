@@ -22,6 +22,7 @@ class PathQuery extends Component {
 
     state = {
         path: [],
+        mapFirstLoad: true
     };
 
     pathQueryOnClick = () => {
@@ -67,9 +68,12 @@ class PathQuery extends Component {
             } else {
                 let object = JSON.parse(xhr.responseText);
                 this.setState({path: object});
-                this.map = L.map('map');
-                L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
-                    .addTo(this.map);
+                if(this.state.mapFirstLoad) {
+                    this.map = L.map('map');
+                    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
+                        .addTo(this.map);
+                    this.setState({mapFirstLoad: false})
+                }
                 let waypoint = [];
                 for(let i = 0; i < this.state.path.length; i++) {
                     waypoint.push(L.latLng(this.state.path[i]["longitude"],
@@ -78,7 +82,6 @@ class PathQuery extends Component {
                 L.Routing.control({
                     waypoints: waypoint,
                     plan: false
-
                 }).addTo(this.map);
             }
         };

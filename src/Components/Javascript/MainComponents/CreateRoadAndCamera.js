@@ -17,13 +17,12 @@ class CreateRoadAndCamera extends Component {
     };
 
 
-    goToCameraPageClick = (id) => {
+    goToCameraPageClick = (id, province) => {
         console.log(id);
 
         this.props.history.push({
-                pathname: '/template',
-                search: '?query=abc',
-                state: {detail: id}
+                pathname: '/camera',
+                state: {road_id: id, province: province}
             }
         );
     };
@@ -118,7 +117,7 @@ class CreateRoadAndCamera extends Component {
                                             way={way}
                                             province={el["province"]}
                                             road_id={el["road_id"]}
-                                            goToCameraPageClick={() => this.goToCameraPageClick(el["road_id"])}/>
+                                            goToCameraPageClick={() => this.goToCameraPageClick(el["road_id"], el["province"])}/>
                                     )
                                 })
                             }
