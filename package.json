@@ -8,7 +8,7 @@
     "jquery": "^3.4.1",
     "leaflet": "^1.5.1",
     "leaflet-routing-machine": "^3.2.12",
-    "lodash": "^4.17.14",
+    "lodash": "^4.17.21",
     "lodash.template": "^4.5.0",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.9",
